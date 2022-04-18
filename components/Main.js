@@ -1,19 +1,21 @@
 import React from 'react';
 
-import { View } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import { Text } from 'react-native-paper';
+import { useTheme } from '@react-navigation/native';
+
+import TelaA from './TelaA';
+import TelaB from './TelaB';
+
+const Drawer = createDrawerNavigator();
 
 export default function Main(props) {
+    const theme = useTheme();
+
     return (
-        <View
-            style={{
-                flexGrow: 1,
-                justifyContent: 'center',
-                alignItems: 'center',
-            }}
-        >
-            <Text>Abra Main.js para começar a trabalhar no seu app!</Text>
-        </View>
+        <Drawer.Navigator initialRouteName="" screenOptions={theme.screenOptions}>
+            <Drawer.Screen name="TelaA" component={TelaA} />
+            <Drawer.Screen name="TelaB" component={TelaB} />
+        </Drawer.Navigator>
     );
 }
